@@ -8,10 +8,9 @@ namespace addressbook_tests_white
     {
         public ApplicationManager app;
 
-        [SetUpFixture]
+        [OneTimeSetUp]
         public void InitApplication()
         {
-            app
             app = new ApplicationManager();
         }
 
