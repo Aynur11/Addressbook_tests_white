@@ -12,12 +12,18 @@ namespace addressbook_tests_white
     public class ApplicationManager
     {
         public static string WINTITLE = "Free Address Book";
-        private GroupHelper groupHelper;
 
+        private GroupHelper groupHelper;
+        private ContactHelper contactHelper;
         public Window MainWindow { get; set; }
         public GroupHelper Groups
         {
             get { return groupHelper; }
+        }
+
+        public ContactHelper Contacts
+        {
+            get { return contactHelper; }
         }
 
         public ApplicationManager()
@@ -25,6 +31,7 @@ namespace addressbook_tests_white
             Application app = Application.Launch(@"C:\Users\Admin\Desktop\Программирование на C# для тестировщиков\FreeAddressBookPortable\AddressBook.exe");
             MainWindow = app.GetWindow(WINTITLE);
             groupHelper = new GroupHelper(this);
+            contactHelper = new ContactHelper(this);
         }
 
         public void Stop()
